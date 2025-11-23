@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeZone - Perfil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/star-logo.png') }}">
+</head>
+<body class="profile-page">
+    <header class="main-header">
+        <a href="{{ url_for('home') }}" class="header-logo">{% include "logo.html" %}</a>
+        <nav class="main-nav">
+            <a href="{{ url_for('stations_page') }}">Realm</a>
+            <a href="{{ url_for('moods_page') }}">Nexus</a>
+            <a href="{{ url_for('profile_page') }}" class="active">Perfil</a>
+            <a href="{{ url_for('logout') }}">Sair</a>
+        </nav>
+    </header>
+    <div class="profile-container">
+        <div class="profile-header">
+            {% if user.profile_image_url %}
+                <img src="{{ user.profile_image_url }}" alt="Avatar" class="profile-avatar">
+            {% else %}
+                <div class="profile-avatar" style="background: #333;"></div>
+            {% endif %}
+            <div class="profile-info">
+                <h1>{{ user.display_name }}</h1>
+                {% if user.email %}
+                    <p>{{ user.email }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <button id="delete-profile-btn" class="nav-action-btn" style="margin-bottom: 2rem;">Excluir Perfil</button>
+        <button id="create-collection-btn" class="nav-action-btn" style="margin-bottom: 2rem;">Criar Nova Coleção</button>
+        <h2>Suas Músicas Favoritas</h2>
+        {% if favorites %}
+            <div class="favorites-grid">
+                {% for favorite in favorites %}
+                    <div class="favorite-card">
+                        <img src="{{ favorite.cover_url }}" alt="{{ favorite.song_title }}">
+                        <div class="card-info">
+                            <h3>{{ favorite.song_title }}</h3>
+                            <p>{{ favorite.artist_name }}</p>
+                            <span class="mood-tag">{{ favorite.mood }}</span>
+                            <button class="delete-btn" onclick="deleteFavorite({{ favorite.id }}, this)">&times;</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-favorites-message">Você ainda não tem músicas favoritas. Explore os humores e adicione suas vibes!</p>
+        {% endif %}
+        <h2>Suas Coleções</h2>
+        {% if collections %}
+            <div class="favorites-grid">
+                {% for collection in collections %}
+                    <div class="collection-item">
+                        <h3>{{ collection.name }}</h3>
+                        <ul>
+                            {% for item in collection.items %}
+                                <li>
+                                    {{ item.favorite.song_title }} - {{ item.favorite.artist_name }}
+                                    <button class="remove-from-collection-btn" data-collection-id="{{ collection.id }}" data-favorite-id="{{ item.favorite_id }}">Remover</button>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <select class="favorite-select" data-collection-id="{{ collection.id }}">
+                            <option value="">Selecione uma música</option>
+                            {% for favorite in favorites %}
+                                <option value="{{ favorite.id }}">{{ favorite.song_title }} - {{ favorite.artist_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="add-to-collection-btn" data-collection-id="{{ collection.id }}">Adicionar</button>
+                        <button class="delete-collection-btn" data-collection-id="{{ collection.id }}">Excluir Coleção</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-favorites-message">Você ainda não tem coleções. Crie uma para organizar seus favoritos!</p>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

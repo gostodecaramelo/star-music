@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeZone - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/star-logo.png') }}">
+</head>
+<body class="login-page">
+    <header class="main-header">
+        <a href="{{ url_for('home') }}" class="header-logo">{% include "logo.html" %}</a>
+        <nav class="main-nav">
+            <a href="{{ url_for('stations_page') }}">Realm</a>
+            <a href="{{ url_for('moods_page') }}">Nexus</a>
+            {% if logged_in %}
+                <a href="{{ url_for('profile_page') }}">Perfil</a>
+                <a href="{{ url_for('logout') }}">Sair</a>
+            {% else %}
+                <a href="{{ url_for('login_manual') }}" class="active">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="login-wrapper">
+
+        <div class="login-promo-side">
+            <img src="{{ url_for('static', filename='image/stardj.png') }}" alt="DJ VibeZone">
+        </div>
+
+        <div class="login-container">
+
+            <div class="login-logos">
+                <img src="{{ url_for('static', filename='image/star-logo.png') }}" alt="VibeZone Logo" class="login-logo-img">
+                
+                <span>+</span>
+                
+                <img src="{{ url_for('static', filename='image/spotify-logo.png') }}" alt="Spotify Logo" class="login-logo-img">
+            </div>
+
+            <div class="login-promo-text">
+                <h3>Prove sua existência.</h3>
+                <p>
+                    Clique para provar que sua identidade musical não é só um amontoado de playlists aleatórias roubadas de gente mais interessante. Duvidamos.
+                </p>
+            </div>
+            
+            <h1>Entrar no VibeZone</h1>
+
+            <form id="login-form" method="POST" action="{{ url_for('login_manual') }}">
+                <input type="hidden" name="action" value="">
+                <button type="submit" class="nav-action-btn" value="login">Entrar com Spotify</button>
+            </form>
+        </div>
+
+    </div> <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

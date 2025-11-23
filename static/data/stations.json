@@ -1,0 +1,277 @@
+{
+  "stations": [
+    {
+      "id": "rockwave-radio",
+      "name": "Rockwave Radio",
+      "dj": "Axel 'Old Flame' Rivers",
+      "image": "/static/image/rockwave.png",
+      "description": "Rockwave Radio: riffs tão velhos que já têm aposentadoria e solos de guitarra que gritam mais alto que sua mãe cobrando o aluguel. Axel 'Old Flame' Rivers comanda como se tivesse gargarejado uísque e arrependimento antes de ligar o microfone.",
+      "quote": "Rock é pra quem já desistiu da vida, mas ainda curte um solo.",
+      "gallery_images": [
+        "/static/images/ls-rock-1.jpg",
+        "/static/images/ls-rock-2.jpg"
+      ],
+      "tracks": [
+        {
+          "id": 1,
+          "title": "Pure Shores",
+          "artist": "All Saints",
+          "url": "/static/music/rockwave-radio/All Saints - Pure Shores.mp3"
+        },
+        {
+          "id": 2,
+          "title": "1 Thing",
+          "artist": "Amerie",
+          "url": "/static/music/rockwave-radio/Amerie - 1 Thing.mp3"
+        },
+        {
+          "id": 3,
+          "title": "Gimme More",
+          "artist": "Britney Spears",
+          "url": "/static/music/rockwave-radio/Britney Spears - Gimme More.mp3"
+        },
+        {
+          "id": 4,
+          "title": "Glamorous",
+          "artist": "Fergie",
+          "url": "/static/music/rockwave-radio/Fergie - Glamorous.mp3"
+        },
+        {
+          "id": 5,
+          "title": "Adult Education",
+          "artist": "Hall & Oates",
+          "url": "/static/music/rockwave-radio/Hall & Oates - Adult Education.mp3"
+        }
+      ]
+    },
+    {
+      "id": "popvibes-fm",
+      "name": "PopVibes FM",
+      "dj": "Neon Bella",
+      "image": "/static/image/popvibes.png",
+      "description": "PopVibes FM: onde os sintetizadores gritam mais alto que um militante corrigindo seu 'o' num grupo de WhatsApp. Neon Bella mixa com o desprezo de quem já foi cancelada por um pronome errado num e-mail e agora toca hits pra te lembrar que sua bio com 'elu/ile' não paga o aluguel. Aqui, cada drop é mais inclusivo que um TED Talk sobre diversidade, mas tão útil quanto debater 'todes' enquanto o mundo pega fogo e sua conta de luz tá vencida.",
+      "quote": "Chame-me de 'elu' ou de 'lixo', tanto faz, contanto que dance.",
+      "gallery_images": [],
+      "tracks": [
+    {
+      "id": 1,
+      "title": "Pure Shores",
+      "artist": "All Saints",
+      "url": "/static/music/popvibes-fm/All Saints - Pure Shores.mp3"
+    },
+    {
+      "id": 2,
+      "title": "1 Thing",
+      "artist": "Amerie",
+      "url": "/static/music/popvibes-fm/Amerie - 1 Thing.mp3"
+    },
+    {
+      "id": 3,
+      "title": "Gimme More",
+      "artist": "Britney Spears",
+      "url": "/static/music/popvibes-fm/Britney Spears - Gimme More.mp3"
+    },
+    {
+      "id": 4,
+      "title": "Glamorous",
+      "artist": "Fergie",
+      "url": "/static/music/popvibes-fm/Fergie - Glamorous.mp3"
+    },
+    {
+      "id": 5,
+      "title": "Adult Education",
+      "artist": "Hall & Oates",
+      "url": "/static/music/popvibes-fm/Hall & Oates - Adult Education.mp3"
+    },
+    {
+      "id": 6,
+      "title": "Don't Wanna Fall In Love",
+      "artist": "Jane Child",
+      "url": "/static/music/popvibes-fm/Jane Child - Don't Wanna Fall In Love.mp3"
+    },
+    {
+      "id": 7,
+      "title": "Work",
+      "artist": "Kelly Rowland",
+      "url": "/static/music/popvibes-fm/Kelly Rowland - Work.mp3"
+    },
+    {
+      "id": 8,
+      "title": "Living in a Box",
+      "artist": "Living in a Box",
+      "url": "/static/music/popvibes-fm/living in a box.mp3"
+    },
+    {
+      "id": 9,
+      "title": "Scandalous",
+      "artist": "Mis-Teeq",
+      "url": "/static/music/popvibes-fm/Mis-Teeq - Scandalous.mp3"
+    },
+    {
+      "id": 10,
+      "title": "Lady (Hear Me Tonight)",
+      "artist": "Modjo",
+      "url": "/static/music/popvibes-fm/Modjo - Lady.mp3"
+    },
+    {
+      "id": 11,
+      "title": "Anthem",
+      "artist": "N-Joi",
+      "url": "/static/music/popvibes-fm/N - Joi - Anthem.mp3"
+    },
+    {
+      "id": 12,
+      "title": "West End Girls",
+      "artist": "Pet Shop Boys",
+      "url": "/static/music/popvibes-fm/Pet Shop Boys - West End Girls.mp3"
+    },
+    {
+      "id": 13,
+      "title": "Only Girl (In The World)",
+      "artist": "Rihanna",
+      "url": "/static/music/popvibes-fm/Rihanna - Only Girl (In The World).mp3"
+    },
+    {
+      "id": 14,
+      "title": "With Every Heartbeat",
+      "artist": "Robyn",
+      "url": "/static/music/popvibes-fm/Robyn - With Every Heartbeat.mp3"
+    },
+    {
+      "id": 15,
+      "title": "The Music Sounds Better With You",
+      "artist": "Stardust",
+      "url": "/static/music/popvibes-fm/Stardust - The Music Sounds Better With You.mp3"
+    },
+    {
+      "id": 16,
+      "title": "My Humps",
+      "artist": "The Black Eyed Peas",
+      "url": "/static/music/popvibes-fm/The Black Eyed Peas - My Humps.mp3"
+    },
+    {
+      "id": 17,
+      "title": "Digging Your Scene",
+      "artist": "The Blow Monkeys",
+      "url": "/static/music/popvibes-fm/The Blow Monkeys - Digging Your Scene.mp3"
+    },
+    {
+      "id": 18,
+      "title": "Everything She Wants",
+      "artist": "Wham",
+      "url": "/static/music/popvibes-fm/Wham - Everything She Wants.mp3"
+    }
+]
+    },
+    {
+      "id": "sonic-pulse",
+      "name": "Sonic Pulse",
+      "dj": "MC Flex",
+      "image": "/static/image/sonicpulse.png",
+      "description": "Sonic Pulse: rimas tão letais que te cancelam antes que você descubra quem 'realmente é' na terapia de grupo do Twitter. MC Flex cospe versos com a raiva de quem já foi linchado online por não decorar a bio de alguém e agora toca rap enquanto ri da sua crise existencial. Aqui, cada batida é mais pesada que uma thread de 60 tweets jurando que sua identidade é uma revolução, mas tão útil quanto gritar 'autenticidade' enquanto o banco toma seu carro.",
+      "quote": "Minha rima é tão afiada que corta sua autoestima.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "golden-west-radio",
+      "name": "Golden West Radio",
+      "dj": "West Ghost",
+      "image": "/static/image/goldenwest.png",
+      "description": "Golden West Radio: onde cada grave carrega mais drama que uma briga de bar e cada rima cheira a maconha e vingança. West Ghost pilota o som com a calma de quem já sobreviveu a três tiroteios e ainda deve dinheiro pro traficante.",
+      "quote": "Clássico é o que toca enquanto sua vida desmorona.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "neon-beats",
+      "name": "Neon Beats",
+      "dj": "LUX-88",
+      "image": "/static/image/neonbeats.png",
+      "description": "Neon Beats: batidas tão violentas que seu coração pede um advogado. LUX-88 comanda como se estivesse pilotando um tanque numa rave, com LEDs piscando enquanto o mundo pega fogo lá fora.",
+      "quote": "140 BPM ou eu te apago da existência.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "tropical-soundwaves",
+      "name": "Tropical Soundwaves",
+      "dj": "DJ Solmara",
+      "image": "/static/image/tropicalsoundwaves.png",
+      "description": "Tropical Soundwaves: onde os graves são mais quentes que o papo de um coach de autoajuda te vendendo 'o segredo da prosperidade'. DJ Solmara mixa com a energia de quem já meditou com cristais, cobrou 200 reais por uma palestra de 'alinhamento cósmico' e ainda deve pro terapeuta. Aqui, cada reggaeton é mais falso que sua 'jornada de autoconhecimento'.",
+      "quote": "Encontre sua paz interior… ou compre meu curso por 12x de 99,90.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "funky-grove",
+      "name": "Funky Grove",
+      "dj": "Queen Bounce",
+      "image": "/static/image/funkygrove.png",
+      "description": "Funky Grove: onde o baixo é mais suculento que um bife que você nunca vai comer. Queen Bounce comanda com a energia de quem já gritou 'salve as vacas' enquanto comprava abacate colhido por escravos. Aqui, cada faixa é mais orgânica que o sermão de um vegano te julgando por pedir um hambúrguer.",
+      "quote": "Meu groove é vegano, mas meu couro é de verdade.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "roots-reggae-radio",
+      "name": "Roots Reggae Radio",
+      "dj": "Zion Solomon",
+      "image": "/static/image/rootsreggae.png",
+      "description": "Roots Reggae Radio: onde cada batida cheira a utopia rasta e cada verso te faz querer jogar uma foice no capitalismo… até lembrar que a fila pra ração estatal é de três dias. Zion Solomon mixa com o desdém de quem já tentou o comunismo num acampamento vegano, só pra acabar brigando por uma garrafa d’água e um manifesto mal xerocado. Aqui, os graves são mais opressivos que um comitê central decidindo quem lava a louça da revolução.",
+      "quote": "Good vibes? Só depois do terceiro baseado.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "electric-soundwaves",
+      "name": "Electric Soundwaves",
+      "dj": "CYRA-X",
+      "image": "/static/image/electricsoundwaves.png",
+      "description": "Electric Soundwaves: batidas tão otimizadas que parecem o algoritmo que te demitiu por e-mail. CYRA-X comanda como uma startup que promete revolucionar sua vida, mas só te vende um app pra contar quantas vezes você piscou. Aqui, cada drop é mais agressivo que seu chefe te cobrando metas enquanto ele joga golfe.",
+      "quote": "Trabalhe 80 horas por semana ou morra tentando.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "indie-pulse",
+      "name": "Indie Pulse",
+      "dj": "Echo Wilde",
+      "image": "/static/image/indiepulse.png",
+      "description": "Indie Pulse: sons tão alternativos que parecem a trilha do seu colapso enquanto corrige 50 redações sobre 'o valor da educação'. Echo Wilde comanda com a energia de quem largou o curso de pedagogia no terceiro semestre, depois de perceber que 'inspirar mentes' é só um jeito chique de dizer 'atalhar burocracia e apanhar de aluno'. Aqui, cada faixa é mais profunda que as dinâmicas de grupo do seu estágio e mais depressiva que o salário de professor.",
+      "quote": "Indie demais pra quem ainda tem esperança.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "rebel-frequency",
+      "name": "Rebel Frequency",
+      "dj": "Riot Red",
+      "image": "/static/image/rebelfrequency.png",
+      "description": "Rebel Frequency: onde o volume é tão alto que abafa até os gritos da sua própria saúde mental. Riot Red lidera a fúria com riffs que rasgam o tímpano e letras que ofendem até quem concorda. Aqui não tem espaço pra solo de amor — só pra solo de guitarra em meio ao colapso do sistema. Se você ainda acredita na humanidade, melhor mudar de estação; se não, bem-vindo ao clube. Essa rádio é o equivalente sonoro a jogar um coquetel molotov e depois posar pra foto.",
+      "quote": "Não sigo regras, faço frequências.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "outlaw-country",
+      "name": "Outlaw Country",
+      "dj": "Dusty Burns",
+      "image": "/static/image/outlawcountry.png",
+      "description": "Outlaw Country: onde os homens choram em silêncio, o amor sempre termina mal e até os cavalos desistiram da vida. Comandada por Dusty Burns, que já tocava folk antes de saber o que era um CPF, essa estação é o faroeste sonoro pra quem coleciona decepções e balas de revólver. Aqui não tem glamour, só poeira, dor e canções que te lembram que o passado foi pior — e o futuro, duvidoso.",
+      "quote": "Entre a poeira e a estrada, canto meu destino.",
+      "gallery_images": [],
+      "tracks": []
+    },
+    {
+      "id": "bubblegum-bloodbath",
+      "name": "Bubblegum Bloodbath",
+      "dj": "Ji-Yeon 'Fake Smile' Kim",
+      "image": "/static/image/kpopfever.webp",
+      "description": "Bubblegum Bloodbath: hits tão viciantes que te sugam como um contrato de agência. Ji-Yeon 'Fake Smile' Kim, idol que sorri enquanto desmorona, comanda com o rancor de quem dançou 18 horas objeto sexual de fãs pervertidos e empresas predadoras. Aqui, os beats escondem abusos, molka e colapsos que a indústria cobre com glitter. Dance ou vira estatística, perdedora.",
+      "quote": "Dance como se sua vida dependesse disso... porque depende, e o contrato te ferra se você parar.",
+      "gallery_images": [],
+      "tracks": []
+    }
+  ]
+}

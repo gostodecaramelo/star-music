@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeZone - Estações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/star-logo.png') }}">
+</head>
+<body class="stations-page">
+    <header class="main-header">
+        <a href="{{ url_for('home') }}" class="header-logo">{% include "logo.html" %}</a>
+        <nav class="main-nav">
+            <a href="{{ url_for('stations_page') }}" class="active">Realm</a>
+            <a href="{{ url_for('moods_page') }}">Nexus</a>
+            {% if logged_in %}
+                <a href="{{ url_for('profile_page') }}">Perfil</a>
+                <a href="{{ url_for('logout') }}">Sair</a>
+            {% else %}
+                <a href="{{ url_for('login_manual') }}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+    <button class="open-nav-btn" id="open-nav-btn">Menu</button>
+    <div class="nav-overlay" id="nav-overlay">
+        <div class="nav-header">
+            <div class="nav-pills" id="nav-pills"></div>
+            <button class="close-nav-btn" id="close-nav-btn">&times;</button>
+        </div>
+        <div class="nav-content-area" id="nav-content-area"></div>
+    </div>
+    <div id="station-container">
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% else %}
+            <!-- O conteúdo das estações será preenchido pelo JavaScript -->
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

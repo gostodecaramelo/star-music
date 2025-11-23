@@ -1,0 +1,1472 @@
+/* =================================================================== */
+/* --- GERAL & RESET BÁSICO --- */
+/* =================================================================== */
+:root {
+    --primary-purple: #8e2de2;
+    --text-color: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --dark-bg: #000000;
+    --card-bg: #000000;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --gta-font: 'Poppins', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ESTILO PADRÃO PARA TODAS AS PÁGINAS */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+.loading-message, .error-message { color: var(--text-secondary); padding: 2rem; text-align: center; width: 100%; }
+.error-message { color: #ff512f; }
+
+
+/* =================================================================== */
+/* --- HEADER GLOBAL (Estilo Rockstar para TODAS as páginas) --- */
+/* =================================================================== */
+.main-header {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Z-index alto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border-color);
+}
+.header-logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+/* Define o tamanho do logo DENTRO do header */
+.header-logo .logo-img {
+    height: 60px; /* <-- REDUZIDO DE 70px */
+    width: auto;
+}
+.main-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.main-nav a {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #ccc;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+.main-nav a:hover {
+    color: #ffffff;
+}
+.main-nav a.active {
+    color: #ffffff; /* Roxo removido */
+}
+
+/* Ajuste responsivo para header */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1rem 2%;
+        flex-direction: column;
+        text-align: center;
+    }
+    .main-nav {
+        margin-top: 1rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .header-logo {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+/* =================================================================== */
+/* --- PÁGINA PRINCIPAL (HOMEPAGE) --- */
+/* =================================================================== */
+
+/* --- 1. HERO (Fundo Imagem 1) --- */
+body.homepage {
+    position: relative;
+    min-height: 100vh; 
+    /* * * * ADICIONE SUA IMAGEM DE FUNDO HERO AQUI * * */
+    background-image: url('../image/screenshot.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-color: var(--dark-bg);
+}
+
+/* Remove o botão de login antigo e solto */
+body.homepage .top-right-nav {
+    display: none;
+}
+
+/* Conteúdo do Hero (Logo, Subtítulo, Botões) */
+.homepage .main-content-wrapper {
+    position: relative; 
+    z-index: 2; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    min-height: 100vh;
+    width: 100%;  
+    padding: 10rem 5% 10rem;
+    
+    /* Estilo Rockstar */
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
+    
+}
+/* Tamanho do logo DENTRO do Hero */
+.homepage .main-content-wrapper .logo-img {
+    width: 350px;
+    height: auto;
+}
+.homepage .main-subtitle {
+    font-size: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+/* --- 2. BOTÕES DO HERO (Estilo Imagem 2) --- */
+.homepage .choice-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row; /* Lado a lado */
+    gap: 1.5rem;
+}
+.homepage .choice-card {
+    width: auto; /* Largura automática */
+    padding: 0.75rem 2.5rem; /* Padding de botão */
+    border-radius: 9999px; /* Formato de pílula */
+    transition: all 0.2s ease;
+}
+.homepage .choice-card h2 {
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 700;
+}
+.homepage .choice-card p {
+    display: none; /* Esconde descrição */
+}
+/* Botão 1 (Estações) - Estilo Branco */
+.homepage .choice-card:nth-child(1) {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+.homepage .choice-card:nth-child(1):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+/* Botão 2 (Humores) - Estilo Contorno */
+.homepage .choice-card:nth-child(2) {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+.homepage .choice-card:nth-child(2):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- 3. SEÇÕES DE CONTEÚDO (Fundo Preto) --- */
+.homepage .testimonials-section,
+.homepage .emotion-selector,
+.homepage .streaming-albums-section,
+.homepage .dj-section,
+.homepage .support-promo,
+.homepage .site-footer {
+    background-color: #000000;
+    border-top: 1px solid #222;
+    position: relative;
+    z-index: 2; /* Fica acima do fundo fixo */
+}
+
+/* --- 4. SEÇÃO DEPOIMENTOS --- */
+.testimonials-section {
+    padding: 4rem 0;
+}
+.testimonials-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+.testimonials-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    text-align: center;
+    padding-left: 5%;
+}
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mobile: 2 colunas */
+    gap: 2.5rem;
+}
+.testimonial-card {
+    background-color: #111;
+    border: 1px solid #222;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: none; /* Remove sombra antiga */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: scale(1.03);
+    border-color: #fff;
+}
+.testimonial-stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: #f59e0b;
+    font-size: 1.25rem;
+}
+.testimonial-stars span + span {
+    margin-left: 0.25rem;
+}
+.testimonial-quote {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #fff; /* Texto branco */
+    margin-bottom: 1rem;
+}
+.testimonial-author {
+    font-weight: 600;
+    color: #fff; /* Texto branco */
+}
+.testimonial-author-title {
+    font-size: 0.875rem;
+    color: #888;
+}
+.testimonial-logo-card {
+    display: none; /* Escondido no mobile */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.testimonial-logo-card .logo-text-sm {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+}
+.testimonial-logo-card .logo-text-lg {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #fff;
+}
+.testimonial-logo-card .logo-trophy {
+    margin-top: 1rem;
+    font-size: 2.25rem;
+}
+
+/* --- 5. SEÇÃO EMOJI MARQUEE --- */
+.emotion-selector {
+    background-color: #111; /* Fundo mais claro */
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+.emotion-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.emotion-subtitle {
+    font-size: 1.25rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+.emoji-below {
+    margin-bottom: 1.5rem;
+}
+.emoji-row-left, .emoji-row-right {
+    display: flex;
+    width: max-content;
+    flex-shrink: 0;
+}
+.emoji-row-left {
+    animation: scroll-left 60s linear infinite;
+}
+.emoji-row-right {
+    animation: scroll-right 60s linear infinite;
+}
+.emoji-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    margin: 0 0.75rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    white-space: nowrap;
+    /* Estilo Rockstar escuro */
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #333;
+    box-shadow: none;
+}
+.emoji-item span {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+.try-move-btn {
+    display: inline-block;
+    background-color: #2563eb; /* Botão azul mantido */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+.try-move-btn:hover {
+    background-color: #1d4ed8;
+}
+@keyframes scroll-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+}
+
+/* --- 6. SEÇÃO STREAMING E ÁLBUNS --- */
+.streaming-albums-section {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.streaming-albums-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.streaming-albums-subtitle {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    margin-bottom: 3rem;
+}
+.streaming-albums-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+.albums-column, .streaming-column {
+    height: 400px;
+    overflow: hidden;
+    flex: 1;
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+}
+.albums-column::before, .streaming-column::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--dark-bg), transparent);
+    z-index: 2;
+}
+.albums-column::after, .streaming-column::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, var(--dark-bg), transparent);
+    z-index: 2;
+}
+.albums-list, .streaming-list {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    animation: scroll-vertical 80s linear infinite;
+}
+.streaming-column .streaming-list {
+    animation-direction: reverse;
+}
+.album-item {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.album-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+.album-item p {
+    font-weight: 500;
+    color: #d1d5db;
+}
+.streaming-item {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+}
+.central-logo {
+    flex-shrink: 0;
+    z-index: 5;
+    margin: 1rem 0;
+}
+.central-logo img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+.action-btn {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 3rem;
+    transition: background-color 0.3s ease;
+}
+.action-btn:hover {
+    background-color: #1d4ed8;
+}
+@keyframes scroll-vertical {
+    0% { transform: translateY(0%); }
+    100% { transform: translateY(-50%); }
+}
+
+/* --- 7. SEÇÃO DJ (Estilo Imagem 2) --- */
+.dj-section {
+    position: relative;
+    padding: 5rem 1.5rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    background-color: var(--dark-bg);
+}
+.dj-section-text {
+    z-index: 10;
+    text-align: center;
+    /* Estilo "Learn More" - sem vidro */
+    background: none;
+    backdrop-filter: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+.dj-section-image {
+    position: relative;
+    border-radius: 0.75rem;
+}
+.dj-section-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+}
+.dj-section-text h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+.dj-section-text .subtitle {
+    font-size: 1.125rem;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+}
+.dj-section-text .description {
+    color: #d1d5db;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dj-section-text .italic-note {
+    font-style: italic;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+/* Botão "Explorar" - Estilizado como Botão Branco */
+.dj-section-text .cta-button {
+    display: inline-block;
+    padding: 0.75rem 2.5rem;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.dj-section-text .cta-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- 8. NOVA SEÇÃO "SUPPORT" (Estilo Imagem 3) --- */
+.support-promo {
+    position: relative;
+    padding: 6rem 5%;
+    /* * * * ADICIONE SUA IMAGEM DE FUNDO DO SUPPORT AQUI * */
+    background-image: url('../image/screenshot4.jpeg');
+    background-size: cover;
+    background-position: center top;
+    text-align: center;
+    z-index: 2;
+    overflow: hidden;
+    border-top: 1px solid #222;
+}
+.support-promo::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 1;
+}
+.support-promo-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.support-promo h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.support-promo h2 img {
+    height: 1.5em;
+    width: auto;
+    filter: brightness(0) invert(1); /* Deixa o logo branco */
+}
+.support-promo p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+/* Botão "Obter Suporte" - Estilo Branco */
+.support-promo .support-btn {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 0.75rem 2.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+.support-promo .support-btn:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* --- 9. FOOTER (Estilo Imagem 3) --- */
+.site-footer {
+    background-color: #000000;
+    color: var(--text-secondary);
+    padding: 3rem 5% 0;
+    border-top: 1px solid var(--border-color);
+    z-index: 2;
+    position: relative;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+.footer-top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.footer-links,
+.footer-links-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.footer-links a:hover,
+.footer-links-legal a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+.footer-language-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+.footer-language-selector:hover {
+    background-color: #222;
+}
+.footer-language-selector svg {
+    width: 1rem;
+    height: 1rem;
+}
+.footer-social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.footer-social-icons a {
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+}
+.footer-social-icons a:hover {
+    color: var(--text-color);
+}
+.footer-social-icons svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+}
+.footer-links-legal {
+    font-size: 0.8rem;
+    color: #888;
+}
+.footer-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    color: #888;
+    font-family: Arial, sans-serif;
+}
+.footer-bottom-bar span:first-child {
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+.footer-locations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+@media (max-width: 768px) {
+    .footer-top-nav, .footer-bottom-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-links, .footer-links-legal, .footer-social-icons, .footer-locations {
+        justify-content: center;
+    }
+    .footer-bottom-bar {
+        flex-direction: column-reverse; 
+        gap: 1.5rem;
+    }
+}
+
+
+/* =================================================================== */
+/* --- PÁGINA DE ESTAÇÕES (/stations) --- */
+/* =================================================================== */
+.stations-page { background-color: #000; }
+/* Botão "Menu" que abre o overlay */
+.open-nav-btn {
+    position: fixed; /* Mudei de absolute para fixed */
+    top: 1rem;
+    right: 2rem;
+    z-index: 1001; /* Acima do header */
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    top: calc(40px + 5rem);
+}
+.open-nav-btn:hover { background-color: #282828; }
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.98);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 5%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+.nav-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.nav-pills {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.nav-pill {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.nav-pill:hover { color: #fff; }
+.nav-pill.active { background-color: #fff; color: #000; }
+.close-nav-btn {
+    background: #2a2a2a;
+    border: none;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.close-nav-btn:hover { transform: scale(1.1) rotate(90deg); }
+.nav-content-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-y: auto;
+    width: 100%;
+}
+.nav-content-link {
+    font-family: var(--gta-font);
+    font-size: clamp(1.5rem, 6vw, 3.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+    padding: 0.25rem 0;
+}
+.nav-content-link:hover { color: #fff; }
+.station-section {
+    min-height: 100vh;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.station-section.is-visible { opacity: 1; transform: translateY(0); }
+.station-content { max-width: 1400px; width: 100%; }
+.station-header { text-align: left; margin-bottom: 3rem; }
+.station-header h2 { font-size: 1.5rem; font-weight: 500; text-transform: uppercase; }
+.station-header h1 { font-size: 7rem; font-weight: 900; line-height: 1; text-transform: uppercase; }
+.station-body { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.station-media { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-content: flex-start; }
+.dj-photo { grid-column: 1 / -1; width: 100%; border-radius: 8px; margin-bottom: 1rem; }
+.gallery-photo { width: 100%; border-radius: 8px; }
+.station-text .quote { font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 2rem; }
+.station-text .description { font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 3rem; }
+.tracklist-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.station-tracklist { list-style: none; }
+.track-item { padding: 0.75rem; display: flex; align-items: center; gap: 1rem; border-radius: 6px; transition: background-color 0.2s; }
+.track-item:hover { background-color: #2a2a2a; }
+.track-number { font-weight: 500; color: var(--text-secondary); width: 20px; text-align: center;}
+.track-info { flex-grow: 1; }
+.track-title { font-weight: 700; }
+.track-artist { font-size: 0.9rem; color: var(--text-secondary); }
+.track-play-btn {
+    background: transparent;
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.track-play-btn:hover { transform: scale(1.1); }
+.track-play-btn svg { width: 20px; height: 20px; fill: currentColor; }
+.track-play-btn .pause-icon { display: none; }
+.track-play-btn.playing .play-icon { display: none; }
+.track-play-btn.playing .pause-icon { display: block; color: var(--primary-purple); }
+
+
+/* =================================================================== */
+/* --- PÁGINA DE HUMORES (/moods) --- */
+/* =================================================================== */
+.moods-page { display: flex; flex-direction: column; min-height: 100vh; position: relative; overflow-x: hidden; }
+
+#moods-background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    filter: blur(25px) brightness(0.4);
+    transform: scale(1.1);
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+#moods-background-layer.is-active {
+    opacity: 1;
+}
+
+.moods-page .container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 1rem;
+    position: relative;
+    z-index: 2;
+}
+.moods-page .mood-visualizer {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 400px;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.moods-page .music-card {
+    position: absolute;
+    width: 220px; height: 220px;
+    border-radius: 20px;
+    background-size: cover; background-position: center;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: white; display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 1rem;
+    overflow: hidden; cursor: pointer;
+}
+.moods-page .music-card:hover {
+    transform: scale(1.15) translateY(-15px) !important;
+    z-index: 10 !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+}
+.moods-page .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); z-index: 1; }
+.moods-page .card-content { position: relative; z-index: 2; text-align: left; opacity: 0; transition: opacity 0.3s ease; }
+.moods-page .music-card:hover .card-content { opacity: 1; }
+.moods-page .card-content h3 { font-size: 1.1rem; margin: 0; font-weight: 700; line-height: 1.2; }
+.moods-page .card-content p { font-size: 0.9rem; margin: 0.25rem 0 0; opacity: 0.8; }
+.moods-page .card-content .controls { margin-top: 0.5rem; display: flex; gap: 0.5rem; align-items: center;}
+.moods-page .play-pause-btn, .moods-page .deezer-link-btn {
+    background-color: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white; backdrop-filter: blur(5px);
+    width: 45px; height: 45px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer; transition: all 0.2s ease;
+}
+.moods-page .play-pause-btn:hover, .moods-page .deezer-link-btn:hover { background-color: rgba(255, 255, 255, 0.4); transform: scale(1.1); }
+.moods-page .play-pause-btn svg, .moods-page .deezer-link-btn svg { width: 20px; height: 20px; fill: currentColor; stroke: currentColor; stroke-width: 1.5; }
+.moods-page .play-pause-btn .play-icon { display: block; }
+.moods-page .play-pause-btn .pause-icon { display: none; }
+.moods-page .play-pause-btn.playing .play-icon { display: none; }
+.moods-page .play-pause-btn.playing .pause-icon { display: block; }
+
+.moods-page .music-card:nth-child(1) { transform: rotate(-20deg) translateX(-240px) scale(0.9); z-index: 1; box-shadow: 0 0 25px rgba(77, 8, 154, 0.4); }
+.moods-page .music-card:nth-child(2) { transform: rotate(-10deg) translateX(-120px); z-index: 2; box-shadow: 0 0 30px rgba(0, 255, 255, 0.6); }
+.moods-page .music-card:nth-child(3) { transform: scale(1.2); z-index: 3; box-shadow: 0 0 45px rgba(255, 0, 191, 0.6); }
+.moods-page .music-card:nth-child(4) { transform: rotate(10deg) translateX(120px); z-index: 2; box-shadow: 0 0 30px rgba(241, 135, 1, 0.6); }
+.moods-page .music-card:nth-child(5) { transform: rotate(20deg) translateX(240px) scale(0.9); z-index: 1; box-shadow: 0 0 25px rgba(86, 171, 47, 0.4); }
+
+.moods-page h1 { text-align: center; font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem; letter-spacing: 1px; }
+.moods-page .mood-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+.moods-page .mood-btn {
+    background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color); border-radius: 50px; padding: 12px 24px; font-size: 1rem;
+    font-family: 'Poppins', sans-serif; cursor: pointer; transition: all 0.3s ease;
+}
+.moods-page .mood-btn:hover { background-color: rgba(255, 255, 255, 0.2); border-color: var(--text-color); transform: translateY(-3px); }
+.moods-page .mood-btn.active { background-color: var(--primary-purple); color: #fff; }
+
+.moods-page .favorite-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    backdrop-filter: blur(5px);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.moods-page .favorite-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: all 0.2s ease;
+}
+.moods-page .favorite-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+.moods-page .favorite-btn.favorited {
+    color: #1DB954; /* Cor verde do Spotify */
+}
+
+
+/* =================================================================== */
+/* --- PÁGINA DE PERFIL (/profile) --- */
+/* =================================================================== */
+.profile-page .main-header { position: static; } /* Perfil não tem header fixo */
+.profile-container {
+    padding: 4rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--card-bg);
+}
+.profile-info h1 {
+    font-size: 3rem;
+    font-weight: 900;
+}
+.profile-info p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+.profile-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+.collection-item {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 1rem;
+}
+.collection-item h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.collection-item ul {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+.collection-item ul li {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.collection-item .add-to-collection-btn,
+.collection-item .remove-from-collection-btn,
+.collection-item .delete-collection-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 0.5rem;
+}
+.collection-item .add-to-collection-btn:hover,
+.collection-item .remove-from-collection-btn:hover,
+.collection-item .delete-collection-btn:hover {
+    background-color: #282828;
+}
+.favorite-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background-color 0.3s;
+    position: relative;
+}
+.favorite-card:hover { background-color: #282828; }
+.favorite-card img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+.favorite-card .card-info { padding: 1rem; }
+.favorite-card h3 { font-size: 1rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.favorite-card p { font-size: 0.9rem; color: var(--text-secondary); }
+.mood-tag {
+    display: inline-block;
+    background: var(--primary-purple);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 0.75rem;
+    text-transform: capitalize;
+}
+.delete-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.favorite-card:hover .delete-btn { opacity: 1; }
+.delete-btn:hover { background: #e53935; transform: scale(1.1); }
+.no-favorites-message { color: var(--text-secondary); font-size: 1.2rem; }
+
+/* Botão de login genérico (para formulários) */
+.nav-action-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.nav-action-btn:hover { background-color: #282828; }
+
+
+/* =================================================================== */
+/* --- PÁGINA DE LOGIN (/login) --- */
+/* =================================================================== */
+body.login-page {
+    position: relative;
+    background-color: var(--dark-bg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.login-page .main-header {
+    position: relative;
+    z-index: 2;
+}
+.login-wrapper {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    margin: 5rem auto;
+    max-width: 900px;
+    width: 90%; 
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+.login-promo-side {
+    flex-basis: 50%;
+}
+.login-promo-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.login-container {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    border-left: 1px solid var(--border-color); 
+}
+.login-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.login-logos .login-logo-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+.login-logos span {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+}
+.login-promo-text {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.login-promo-text h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+}
+.login-promo-text p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+.login-page h1 {
+    display: none; /* Escondido para dar lugar aos logos/texto */
+}
+.login-page #login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.login-page #login-form .nav-action-btn {
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 800px) {
+    .login-wrapper {
+        flex-direction: column;
+        width: 95%;
+        max-width: 500px;
+    }
+    .login-container {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
+    .login-promo-side {
+        display: none; 
+    }
+}
+
+
+/* =================================================================== */
+/* --- RESPONSIVIDADE GERAL (Media Queries) --- */
+/* =================================================================== */
+@media (min-width: 768px) {
+    /* Homepage: Seção Streaming/Álbuns */
+    .homepage .streaming-albums-container {
+        flex-direction: row;
+    }
+    .homepage .central-logo img {
+        max-width: 400px;
+    }
+    .homepage .albums-column, .homepage .streaming-column {
+        height: 500px;
+    }
+
+    /* Homepage: Seção DJ */
+    .homepage .dj-section {
+        flex-direction: row;
+        padding: 5rem 3rem;
+    }
+    .homepage .dj-section-text {
+        text-align: left;
+    }
+    .homepage .dj-section-text .description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .homepage .dj-section-text, .homepage .dj-section-image {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Homepage: Título de Depoimentos */
+    .homepage .testimonials-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Footer Global */
+    .footer-top-nav, .footer-bottom-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-links, .footer-links-legal, .footer-social-icons, .footer-locations {
+        justify-content: center;
+    }
+    .footer-bottom-bar {
+        flex-direction: column-reverse; 
+        gap: 1.5rem;
+    }
+}
+
+/*
+=================================================
+== ATUALIZAÇÃO DE ESTILO (Botões Hero + Biblioteca de Estações) ==
+=================================================
+*/
+
+/* --- 1. BOTÕES DO HERO (Estilo Imagem 2 - RDR2) --- */
+/* Remove o efeito de vidro e o fundo antigo */
+body.homepage .choice-card {
+    width: auto; /* Largura automática */
+    padding: 0.75rem 2.5rem; /* Padding de botão */
+    border-radius: 9999px; /* Formato de pílula */
+    transition: all 0.2s ease;
+    backdrop-filter: none;
+    box-shadow: none;
+    text-align: center;
+}
+body.homepage .choice-card h2 {
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 700;
+}
+body.homepage .choice-card p {
+    display: none; /* Esconde descrição */
+}
+/* Botão 1 (Estações) - Estilo Branco */
+body.homepage .choice-card:nth-child(1) {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
+}
+body.homepage .choice-card:nth-child(1):hover {
+    background-color: #e0e0e0;
+    border-color: #e0e0e0;
+    transform: none; /* Remove o efeito de subir */
+}
+/* Botão 2 (Humores) - Estilo Contorno */
+body.homepage .choice-card:nth-child(2) {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+body.homepage .choice-card:nth-child(2):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: none;
+}
+
+
+/* --- 2. NOVA SEÇÃO "BIBLIOTECA DE ESTAÇÕES" (Estilo Game Library) --- */
+.station-library {
+    background-color: #000;
+    padding: 4rem 0;
+    position: relative;
+    z-index: 2; /* Garante que fique acima do fundo fixo */
+    border-top: 1px solid #222;
+    overflow: hidden; /* Importante para o marquee */
+}
+
+/* Título (como "Game Library") */
+.library-title {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: left;
+    padding-left: 5%; /* Alinha com o título dos depoimentos */
+    margin-bottom: 2rem;
+}
+
+/* Contêiner das linhas de scroll */
+.library-scroller {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Define a linha de scroll */
+.library-row {
+    display: flex;
+    width: max-content; /* Faz a linha ser extra larga */
+    flex-shrink: 0;
+}
+
+/* Animação de scroll (80 segundos, bem lento) */
+.library-row-slow {
+    animation: scroll-left-slow 80s linear infinite;
+}
+.library-row-reverse {
+    animation-direction: reverse; /* Faz a segunda linha ir para o outro lado */
+}
+
+/* Card individual da estação (como a capa do jogo) */
+.station-card {
+    flex-shrink: 0;
+    width: 250px; /* Largura da capa */
+    margin-right: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #222;
+}
+.station-card img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 4; /* Proporção de capa (vertical) */
+    object-fit: cover;
+    display: block;
+}
+.station-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    z-index: 10;
+}
+
+/* A animação de scroll (keyframe separado para não conflitar) */
+@keyframes scroll-left-slow {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); } /* Move uma cópia inteira */
+}
+
+/*
+=================================================
+== ATUALIZAÇÃO: Header da Biblioteca de Estações ==
+=================================================
+*/
+
+/* Contêiner para o Título, Subtítulo e Botão */
+.library-header {
+    padding-left: 5%; /* Alinha tudo à esquerda */
+    margin-bottom: 2rem; /* Espaço antes do scroller */
+}
+
+/* Título (como "Game Library") */
+.library-title {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 0.5rem; /* Margem menor */
+    padding-left: 0; /* Removido, já que o pai controla */
+}
+
+/* NOVO: Subtítulo da Biblioteca */
+.library-subtitle {
+    color: var(--text-secondary); /* Cinza claro */
+    font-size: 1.1rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    max-width: 500px; /* Limita a largura */
+}
+
+/* NOVO: Botão "Ver Todas" */
+.library-view-all-btn {
+    display: inline-flex; /* Para alinhar texto e seta */
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+.library-view-all-btn:hover {
+    background-color: #e0e0e0;
+}
+.library-view-all-btn svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke: #000000;
+    /* Animação sutil da seta */
+    transition: transform 0.2s ease;
+}
+.library-view-all-btn:hover svg {
+    transform: translateX(4px); /* Move a seta para a direita */
+}

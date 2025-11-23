@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeZone - Humores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/star-logo.png') }}">
+</head>
+<body class="moods-page">
+    <div id="moods-background-layer"></div>
+    <header class="main-header">
+        <a href="{{ url_for('home') }}" class="header-logo">{% include "logo.html" %}</a>
+        <nav class="main-nav">
+            <a href="{{ url_for('stations_page') }}">Realm</a>
+            <a href="{{ url_for('moods_page') }}" class="active">Nexus</a>
+            {% if logged_in %}
+                <a href="{{ url_for('profile_page') }}">Perfil</a>
+                <a href="{{ url_for('logout') }}">Sair</a>
+            {% else %}
+                <a href="{{ url_for('login_manual') }}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Qual é a sua vibe hoje?</h1>
+        <div class="mood-buttons">
+            <button class="mood-btn" data-mood="happy">Feliz 😄</button>
+            <button class="mood-btn" data-mood="sad">Triste 😢</button>
+            <button class="mood-btn" data-mood="party">Festa 🎉🕺</button>
+            <button class="mood-btn" data-mood="focus">Foco 🧠📚</button>
+            <button class="mood-btn" data-mood="chill">Relax ☕</button>
+            <button class="mood-btn" data-mood="workout">Treino 💪</button>
+            <button class="mood-btn" data-mood="romance">Romance 💘</button>
+            <button class="mood-btn" data-mood="sleep">Sono 😴</button>
+            <button class="mood-btn" data-mood="gaming">Jogos 🎮</button>
+            <button class="mood-btn" data-mood="travel">Viagem 🚗💨</button>
+            <button class="mood-btn" data-mood="retro">Retrô 📼✨</button>
+            <button class="mood-btn" data-mood="summer">Verão 🏖️😎</button>
+            <button class="mood-btn" data-mood="rock">Rock 🤘</button>
+        </div>
+        <div class="mood-visualizer" id="music-display-area"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

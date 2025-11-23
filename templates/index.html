@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Music</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/star-logo.png') }}">
+</head>
+<body class="homepage">
+
+    <header class="main-header">
+        <a href="{{ url_for('home') }}" class="header-logo">{% include "logo.html" %}</a>
+        <nav class="main-nav">
+            <a href="{{ url_for('stations_page') }}">Realm</a>
+            <a href="{{ url_for('moods_page') }}">Nexus</a>
+            {% if logged_in %}
+                <a href="{{ url_for('profile_page') }}">Perfil</a>
+                <a href="{{ url_for('logout') }}">Sair</a>
+            {% else %}
+                <a href="{{ url_for('login_manual') }}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="main-content-wrapper">
+        {% include "logo.html" %}
+        <p class="main-subtitle">Música para cada momento, vibe para cada alma.</p>
+        
+        <div class="choice-container">
+            <a href="{{ url_for('stations_page') }}" class="choice-card">
+                <h2>Realm</h2>
+                <p>Explore estações de rádio inspiradas no GTA, com curadoria para todos os gostos musicais.</p>
+            </a>
+            <a href="{{ url_for('moods_page') }}" class="choice-card">
+                <h2>Nexus</h2>
+                <p>Escolha seu humor e deixe a música te levar para onde você quer estar.</p>
+            </a>
+        </div>
+    </div>
+
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <h2 class="testimonials-title">O que dizem sobre o Sentiment-Tuned Audio Recommender?</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="testimonial-quote">"Um conceito psicológico excelente e pioneiro"</p>
+                    <p class="testimonial-author">Brett Garcia</p>
+                    <p class="testimonial-author-title">Especialista Clínico</p>
+                </div>
+                <div class="testimonial-logo-card">
+                    <div class="logo-text-sm">Financiado por</div>
+                    <div class="logo-text-lg">Innovate UK</div>
+                    <div class="logo-trophy">🏆</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="testimonial-quote">"Isso é genial. Adorei!"</p>
+                    <p class="testimonial-author">Rankin</p>
+                    <p class="testimonial-author-title">Diretor / Fotógrafo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="station-library">
+        
+        <div class="library-header">
+            <h2 class="library-title">Realm</h2>
+            <p class="library-subtitle">Todas as estações do S.T.A.R., das clássicas às novas batidas, em um só lugar.</p>
+            <a href="{{ url_for('stations_page') }}" class="library-view-all-btn">
+                <span>Ver Todas</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </a>
+        </div>
+        
+        <div class="library-scroller">
+            <div class="library-row library-row-slow">
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/echo_wilde.png') }}" alt="Echo Wilde">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/funkygrove.png') }}" alt="Funky Grove">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/electricsoundwaves.png') }}" alt="Electric Soundwaves">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/indiepulse.png') }}" alt="Indie Pulse">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/kpopfever.webp') }}" alt="K-Pop Fever">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/neonbeats.png') }}" alt="Neon Beats">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/outlawcountry.png') }}" alt="Outlaw Country">
+                </div>
+
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/echo_wilde.png') }}" alt="Echo Wilde">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/funkygrove.png') }}" alt="Funky Grove">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/electricsoundwaves.png') }}" alt="Electric Soundwaves">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/indiepulse.png') }}" alt="Indie Pulse">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/kpopfever.webp') }}" alt="K-Pop Fever">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/neonbeats.png') }}" alt="Neon Beats">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/outlawcountry.png') }}" alt="Outlaw Country">
+                </div>
+            </div>
+
+            <div class="library-row library-row-slow library-row-reverse">
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/popvibes.png') }}" alt="Pop Vibes">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/rebelfrequency.png') }}" alt="Rebel Frequency">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/rockwave.png') }}" alt="Rockwave">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/rootsreggae.png') }}" alt="Roots Reggae">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/sonicpulse.png') }}" alt="Sonic Pulse">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/tropicalsoundwaves.png') }}" alt="Tropical Soundwaves">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/goldenwest.png') }}" alt="Golden West">
+                </div>
+
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/popvibes.png') }}" alt="Pop Vibes">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/rebelfrequency.png') }}" alt="Rebel Frequency">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/rockwave.png') }}" alt="Rockwave">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/rootsreggae.png') }}" alt="Roots Reggae">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/sonicpulse.png') }}" alt="Sonic Pulse">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/tropicalsoundwaves.png') }}" alt="Tropical Soundwaves">
+                </div>
+                <div class="station-card">
+                    <img src="{{ url_for('static', filename='image/goldenwest.png') }}" alt="Golden West">
+                </div>
+            </div>
+        </div>
+    <div class="emotion-selector">
+        <h2 class="emotion-title">Tap into the power of emotions and emojis</h2>
+        <p class="emotion-subtitle">I want to feel...</p>
+        
+        <div class="emoji-below">
+            <div class="emoji-row-left">
+                <div class="emoji-item"><span role="img" aria-label="Chill">😌</span> Chill</div>
+                <div class="emoji-item"><span role="img" aria-label="Love">💖</span> Love</div>
+                <div class="emoji-item"><span role="img" aria-label="Cowboy">🤠</span> Determined</div>
+                <div class="emoji-item"><span role="img" aria-label="Alien">👽</span> Trip</div>
+                <div class="emoji-item"><span role="img" aria-label="Rocket">🚀</span> Playful</div>
+                <div class="emoji-item"><span role="img" aria-label="Laugh">😂</span> Fun</div>
+                <div class="emoji-item"><span role="img" aria-label="Star">🌟</span> Inspired</div>
+                <div class="emoji-item"><span role="img" aria-label="Fire">🔥</span> Energetic</div>
+                <div class="emoji-item"><span role="img" aria-label="HeartEyes">😻</span> In Love</div>
+                <div class="emoji-item"><span role="img" aria-label="Thinking">🤔</span> Thoughtful</div>
+                <div class="emoji-item"><span role="img" aria-label="Chill">😌</span> Chill</div>
+                <div class="emoji-item"><span role="img" aria-label="Love">💖</span> Love</div>
+                <div class="emoji-item"><span role="img" aria-label="Cowboy">🤠</span> Determined</div>
+                <div class="emoji-item"><span role="img" aria-label="Alien">👽</span> Trip</div>
+                <div class="emoji-item"><span role="img" aria-label="Rocket">🚀</span> Playful</div>
+                <div class="emoji-item"><span role="img" aria-label="Laugh">😂</span> Fun</div>
+                <div class="emoji-item"><span role="img" aria-label="Star">🌟</span> Inspired</div>
+                <div class="emoji-item"><span role="img" aria-label="Fire">🔥</span> Energetic</div>
+                <div class="emoji-item"><span role="img" aria-label="HeartEyes">😻</span> In Love</div>
+                <div class="emoji-item"><span role="img" aria-label="Thinking">🤔</span> Thoughtful</div>
+            </div>
+        </div>
+        
+        <div class="emoji-below">
+            <div class="emoji-row-right">
+                <div class="emoji-item"><span role="img" aria-label="Happy">😊</span> Happy</div>
+                <div class="emoji-item"><span role="img" aria-label="Sad">😢</span> Sad</div>
+                <div class="emoji-item"><span role="img" aria-label="Excited">🎉</span> Excited</div>
+                <div class="emoji-item"><span role="img" aria-label="Cool">😎</span> Cool</div>
+                <div class="emoji-item"><span role="img" aria-label="Surprised">😮</span> Surprised</div>
+                <div class="emoji-item"><span role="img" aria-label="Angry">😡</span> Angry</div>
+                <div class="emoji-item"><span role="img" aria-label="Sleepy">😴</span> Sleepy</div>
+                <div class="emoji-item"><span role="img" aria-label="Party">🥳</span> Party</div>
+                <div class="emoji-item"><span role="img" aria-label="Heart">💞</span> Romantic</div>
+                <div class="emoji-item"><span role="img" aria-label="Wink">😉</span> Playful</div>
+                <div class="emoji-item"><span role="img" aria-label="Happy">😊</span> Happy</div>
+                <div class="emoji-item"><span role="img" aria-label="Sad">😢</span> Sad</div>
+                <div class="emoji-item"><span role="img" aria-label="Excited">🎉</span> Excited</div>
+                <div class="emoji-item"><span role="img" aria-label="Cool">😎</span> Cool</div>
+                <div class="emoji-item"><span role="img" aria-label="Surprised">😮</span> Surprised</div>
+                <div class="emoji-item"><span role="img" aria-label="Angry">😡</span> Angry</div>
+                <div class="emoji-item"><span role="img" aria-label="Sleepy">😴</span> Sleepy</div>
+                <div class="emoji-item"><span role="img" aria-label="Party">🥳</span> Party</div>
+                <div class="emoji-item"><span role="img" aria-label="Heart">💞</span> Romantic</div>
+                <div class="emoji-item"><span role="img" aria-label="Wink">😉</span> Playful</div>
+            </div>
+        </div>
+        
+        <div class="emoji-below">
+            <div class="emoji-row-left">
+                <div class="emoji-item"><span role="img" aria-label="Dance">💃</span> Dancing</div>
+                <div class="emoji-item"><span role="img" aria-label="Magic">✨</span> Magical</div>
+                <div class="emoji-item"><span role="img" aria-label="Unicorn">🦄</span> Dreamy</div>
+                <div class="emoji-item"><span role="img" aria-label="Music">🎵</span> Musical</div>
+                <div class="emoji-item"><span role="img" aria-label="Rainbow">🌈</span> Colorful</div>
+                <div class="emoji-item"><span role="img" aria-label="Coffee">☕</span> Cozy</div>
+                <div class="emoji-item"><span role="img" aria-label="Book">📖</span> Curious</div>
+                <div class="emoji-item"><span role="img" aria-label="Sun">☀️</span> Bright</div>
+                <div class="emoji-item"><span role="img" aria-label="Moon">🌙</span> Calm</div>
+                <div class="emoji-item"><span role="img" aria-label="Wave">🌊</span> Adventurous</div>
+                <div class="emoji-item"><span role="img" aria-label="Dance">💃</span> Dancing</div>
+                <div class="emoji-item"><span role="img" aria-label="Magic">✨</span> Magical</div>
+                <div class="emoji-item"><span role="img" aria-label="Unicorn">🦄</span> Dreamy</div>
+                <div class="emoji-item"><span role="img" aria-label="Music">🎵</span> Musical</div>
+                <div class="emoji-item"><span role="img" aria-label="Rainbow">🌈</span> Colorful</div>
+                <div class="emoji-item"><span role="img" aria-label="Coffee">☕</span> Cozy</div>
+                <div class="emoji-item"><span role="img" aria-label="Book">📖</span> Curious</div>
+                <div class="emoji-item"><span role="img" aria-label="Sun">☀️</span> Bright</div>
+                <div class="emoji-item"><span role="img" aria-label="Moon">🌙</span> Calm</div>
+                <div class="emoji-item"><span role="img" aria-label="Wave">🌊</span> Adventurous</div>
+            </div>
+        </div>
+        <a href="{{ url_for('moods_page') }}" class="try-move-btn">Try move me</a>
+    </div>
+
+    <section class="streaming-albums-section">
+
+        <h2 class="streaming-albums-title">Filter results by your mood</h2>
+
+        <p class="streaming-albums-subtitle">See what you can listen to for free</p>
+
+        <div class="streaming-albums-container">
+
+           
+
+            <div class="albums-column">
+
+                <div class="albums-list">
+
+                    <div class="album-item"><img src="https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481" alt="Album Art"><p>Track 1</p></div>
+
+                    <div class="album-item"><img src="https://redefanfm.com.br/wp-content/uploads/2024/07/the-weekend-1.jpg" alt="Album Art"><p>Track 2</p></div>
+
+                    <div class="album-item"><img src="https://wallpaperaccess.com/full/2683148.jpg" alt="Album Art"><p>Track 3</p></div>
+
+                    <div class="album-item"><img src="https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2021/07/22/416756637-billie-eilish-umg-2-1.jpg" alt="Album Art"><p>Track 4</p></div>
+
+                    <div class="album-item"><img src="https://auniao.pb.gov.br/noticias/colunistas/andre-cananea/2018thriller2019-40-anos-depois/michael-jackson-thriller.jpg/@@images/a4ed6602-1d11-4646-a443-46323b525e5d.jpeg" alt="Album Art"><p>Track 5</p></div>
+
+                    <div class="album-item"><img src="https://media.licdn.com/dms/image/v2/D4E10AQEG3uHNz4H_EQ/image-shrink_800/image-shrink_800/0/1732042554653?e=2147483647&v=beta&t=RlXOaarSeL2RVBJJSA_D3uFKUI0No2OpXqUlCNKGAd0" alt="Album Art"><p>Track 6</p></div>
+
+                    <div class="album-item"><img src="https://static.wixstatic.com/media/0999ad_d91e3217d7004621bb9236cf31cbfa20~mv2.png/v1/fill/w_568,h_402,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0999ad_d91e3217d7004621bb9236cf31cbfa20~mv2.png" alt="Album Art"><p>Track 7</p></div>
+
+                    <div class="album-item"><img src="https://akamai.sscdn.co/uploadfile/letras/fotos/7/0/9/b/709bbe520ed8c793a763ca4496c540ec.jpg" alt="Album Art"><p>Track 8</p></div>
+
+                    <div class="album-item"><img src="https://cdn.britannica.com/38/200938-050-E22981D1/Freddie-Mercury-Live-Aid-Queen-Wembley-Stadium-July-13-1985.jpg" alt="Album Art"><p>Track 9</p></div>
+
+                    <div class="album-item"><img src="https://stories.cnnbrasil.com.br/wp-content/uploads/sites/9/2024/04/the-beatles.jpg" alt="Album Art"><p>Track 10</p></div>
+
+                    <div class="album-item"><img src="https://i.scdn.co/image/ab67616d0000b2730b04da4f224b51ff86e0a481" alt="Album Art"><p>Track 1</p></div>
+
+                    <div class="album-item"><img src="https://redefanfm.com.br/wp-content/uploads/2024/07/the-weekend-1.jpg" alt="Album Art"><p>Track 2</p></div>
+
+                    <div class="album-item"><img src="https://wallpaperaccess.com/full/2683148.jpg" alt="Album Art"><p>Track 3</p></div>
+
+                    <div class="album-item"><img src="https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2021/07/22/416756637-billie-eilish-umg-2-1.jpg" alt="Album Art"><p>Track 4</p></div>
+
+                    <div class="album-item"><img src="https://auniao.pb.gov.br/noticias/colunistas/andre-cananea/2018thriller2019-40-anos-depois/michael-jackson-thriller.jpg/@@images/a4ed6602-1d11-4646-a443-46323b525e5d.jpeg" alt="Album Art"><p>Track 5</p></div>
+
+                    <div class="album-item"><img src="https://media.licdn.com/dms/image/v2/D4E10AQEG3uHNz4H_EQ/image-shrink_800/image-shrink_800/0/1732042554653?e=2147483647&v=beta&t=RlXOaarSeL2RVBJJSA_D3uFKUI0No2OpXqUlCNKGAd0" alt="Album Art"><p>Track 6</p></div>
+
+                    <div class="album-item"><img src="https://static.wixstatic.com/media/0999ad_d91e3217d7004621bb9236cf31cbfa20~mv2.png/v1/fill/w_568,h_402,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0999ad_d91e3217d7004621bb9236cf31cbfa20~mv2.png" alt="Album Art"><p>Track 7</p></div>
+
+                    <div class="album-item"><img src="https://akamai.sscdn.co/uploadfile/letras/fotos/7/0/9/b/709bbe520ed8c793a763ca4496c540ec.jpg" alt="Album Art"><p>Track 8</p></div>
+
+                    <div class="album-item"><img src="https://cdn.britannica.com/38/200938-050-E22981D1/Freddie-Mercury-Live-Aid-Queen-Wembley-Stadium-July-13-1985.jpg" alt="Album Art"><p>Track 9</p></div>
+
+                    <div class="album-item"><img src="https://stories.cnnbrasil.com.br/wp-content/uploads/sites/9/2024/04/the-beatles.jpg" alt="Album Art"><p>Track 10</p></div>
+
+                </div>
+
+            </div>
+
+           
+
+            <div class="central-logo">
+
+                <img src="static/image/star-logo.png" alt="Central Logo">
+
+            </div>
+
+           
+
+            <div class="streaming-column">
+
+                <div class="streaming-list">
+
+                    <div class="streaming-item"><span role="img" aria-label="Chill">😌</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Love">💖</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Cowboy">🤠</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Alien">👽</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Rocket">🚀</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Laugh">😂</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Star">🌟</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Fire">🔥</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="HeartEyes">😻</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Thinking">🤔</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Happy">😊</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Sad">😢</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Excited">🎉</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Cool">😎</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Surprised">😮</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Angry">😡</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Sleepy">😴</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Party">🥳</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Heart">💞</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Wink">😉</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Chill">😌</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Love">💖</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Cowboy">🤠</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Alien">👽</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Rocket">🚀</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Laugh">😂</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Star">🌟</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Fire">🔥</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="HeartEyes">😻</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Thinking">🤔</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Happy">😊</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Sad">😢</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Excited">🎉</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Cool">😎</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Surprised">😮</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Angry">😡</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Sleepy">😴</span></div>
+
+                    <div class="streaming-item"><span role="img"aria-label="Party">🥳</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Heart">💞</span></div>
+
+                    <div class="streaming-item"><span role="img" aria-label="Wink">😉</span></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <a href="{{ url_for('moods_page') }}" class="action-btn">Action!</a>
+
+    </section>
+    <section class="dj-section">
+        <div class="dj-section-text">
+            <h2>NEXUS: PARA QUEM ACHA QUE "GOSTO MUSICAL" É PERSONALIDADE</h2>
+            <p class="subtitle">IA avançada. (Porque DJs reais têm "personalidade" e cobram caro por isso).</p>
+            <p class="description">
+                Deixe nosso algoritmo, que analisou milhões de perfis patéticos, criar um set sob medida para você. Cada playlist é uma jornada única, calibrada para o seu "mood"... ou só para te dar algo para fingir que está curtindo no Instagram.
+            </p>
+            <p class="italic-note">
+                Do eletrônico ao lo-fi, escolha sua vibe. Finja que você está no controle. No final, o Nexus só está te dando a ilusão de escolha. Você vai ouvir o que mandarmos.
+            </p>
+            <a href="{{ url_for('moods_page') }}" class="cta-button">
+                Explorar playlists
+            </a>
+        </div>
+
+        <div class="dj-section-image">
+            <img src="{{ url_for('static', filename='image/starrealm.png') }}" alt="DJ Virtual">
+        </div>
+    </section>
+
+    <section class="support-promo">
+        <div class="support-promo-content">
+            <h2><img src="{{ url_for('static', filename='image/star-logo.png') }}" alt="Logo"> Suporte</h2>
+            <p>Precisa de ajuda? Navegue por soluções comuns, veja o status do servidor e mais.</p>
+            <a href="#" class="support-btn">Obter Suporte</a>
+        </div>
+    </section>
+
+
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-top-nav">
+            <nav class="footer-links">
+                <a href="#">Contato</a>
+                <a href="#">Diretrizes da Comunidade</a>
+            </nav>
+            </svg>
+            </svg>
+        </div>
+
+        <div class="footer-social-icons">
+            </div>
+
+        <nav class="footer-links-legal">
+            <a href="#">Corporativo</a>
+            <a href="#">Privacidade</a>
+            <a href="#">Configurações de Cookies</a>
+            <a href="#">Política de Cookies</a>
+            <a href="#">Legal</a>
+        </nav>
+    </div>
+
+    <div class="footer-bottom-bar">
+        <span>Star Music</span>
+        <div class="footer-locations">
+            <span>New York</span>
+            <span>London</span>
+            <span>Paris</span>
+            <span>Bogotá</span>
+        </div>
+        <span>MMXXV</span>
+    </div>
+</footer>
+    
+</body>
+</html>
